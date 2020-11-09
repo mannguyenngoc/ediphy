@@ -9,10 +9,10 @@
     "url": "git://github.com/ging/ediphy.git"
   },
   "scripts": {
-    "build-production": "cat ediphy && webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
-    "build": "cat ediphy && node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
-    "build-dev": "cat ediphy && webpack --config webpack.dev.js",
-    "start": "cat ediphy && webpack-dev-server --open --colors --config webpack.dev.js",
+    "build-production": "type ediphy && webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "build": "type ediphy && node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
+    "build-dev": "type ediphy && webpack --config webpack.dev.js",
+    "start": "type ediphy && webpack-dev-server --open --colors --config webpack.dev.js",
     "bundle": "webpack && node bundle_script.js",
     "both": "npm run start-webpack & npm run watch-sass",
     "start-webpack": "webpack-dev-server --progress",
@@ -21,11 +21,11 @@
     "test:reducers": "jest /reducers/* --colors --watch",
     "test:verbose": "jest --watch --colors --verbose || true",
     "test:coverage": "jest --watch --colors --coverage --verbose || true",
-    "test:coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test:coveralls": "jest --coverage && type ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "eslint": "eslint . --fix --ext .js,.jsx,.es6",
-    "doc": "cat ediphy && babel-node --presets es2015 doc/scripts/reactdocgenmd.js & node doc/scripts/importComponents.js & webpack --config doc/webpack.doc.prod.js & webpack -p --config webpack.noserver.js & node doc/scripts/bringtodist.js",
-    "dev-doc": "cat ediphy && babel-node --presets es2015  doc/scripts/reactdocgenmd.js & node doc/scripts/importComponents.js &  webpack --config webpack.noserver.js & node doc/scripts/bringtodist.js & webpack-dev-server --open --progress --colors --config doc/webpack.doc.dev.js",
-    "dev-only-doc": "cat ediphy && webpack-dev-server --open --progress --colors --config doc/webpack.doc.dev.js",
+    "doc": "type ediphy && babel-node --presets es2015 doc/scripts/reactdocgenmd.js & node doc/scripts/importComponents.js & webpack --config doc/webpack.doc.prod.js & webpack -p --config webpack.noserver.js & node doc/scripts/bringtodist.js",
+    "dev-doc": "type ediphy && babel-node --presets es2015  doc/scripts/reactdocgenmd.js & node doc/scripts/importComponents.js &  webpack --config webpack.noserver.js & node doc/scripts/bringtodist.js & webpack-dev-server --open --progress --colors --config doc/webpack.doc.dev.js",
+    "dev-only-doc": "type ediphy && webpack-dev-server --open --progress --colors --config doc/webpack.doc.dev.js",
     "add-all": "git add .",
     "create-plugin": "babel-node plugins/create_plugin.js "
   },
@@ -134,7 +134,7 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
     "webpack-bundle-analyzer": "^2.9.1",
-    "webpack-dev-server": "^2.9.4",
+    "webpack-dev-server": "^2.11.5",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
@@ -211,6 +211,7 @@
     "screenfull": "^3.3.2",
     "scroll-into-view-if-needed": "^1.4.0",
     "stl-viewer": "^0.7.0",
+    "styled-components": "^5.2.1",
     "typeface-source-sans-pro": "0.0.44",
     "typeface-ubuntu": "0.0.44",
     "universal-cookie": "^2.1.5"
